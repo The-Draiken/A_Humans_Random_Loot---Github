@@ -1,0 +1,7 @@
+{
+  "RequiredVersion": 22,
+  "ModTable": "AHRL",
+  "FeatureFlags": [
+    "Lua"
+  ]
+}

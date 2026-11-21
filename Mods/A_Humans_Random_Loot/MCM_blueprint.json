@@ -1,0 +1,792 @@
+{
+  "ModuleUUID": "0c84af14-9732-c150-2347-9396ff617ccd",
+  "SchemaVersion": 1,
+  "ModName": "A Human's Random Loot",
+  "Optional": false,
+  "Tabs": [
+    {
+      "TabId": "settings",
+      "TabName": "Settings",
+      "Handles": {
+        "NameHandle": "h3508b2f27d374498addbfcb092db3794",
+        "TabNameHandle": "h3508b2f27d374498addbfcb092db3794"
+      },
+      "Sections": [
+        {
+          "SectionId": "general",
+          "SectionName": "General",
+          "Handles": {
+            "NameHandle": "h3508b2f27d374498addbfcb092db3795",
+            "SectionNameHandle": "h3508b2f27d374498addbfcb092db3795"
+          },
+          "Settings": [
+            {
+              "Id": "mod_enabled",
+              "Name": "Enable Random Loot",
+              "Type": "checkbox",
+              "Default": true,
+              "Description": "Master switch for trader and enemy loot processing.",
+              "Handles": {
+                "NameHandle": "h3508b2f27d374498addbfcb092db3796",
+                "DescriptionHandle": "h3508b2f27d374498addbfcb092db3797"
+              }
+            },
+            {
+              "Id": "enable_heavy_global_scans",
+              "Name": "Enable Bulk Loaded-Actor Scans",
+              "Type": "checkbox",
+              "Default": false,
+              "Description": "Allows optional load-time and background scans over all currently loaded characters. Keep off for normal play.",
+              "Handles": {
+                "NameHandle": "h3508b2f27d374498addbfcb092db3798",
+                "DescriptionHandle": "h3508b2f27d374498addbfcb092db3799"
+              }
+            },
+            {
+              "Id": "apply_on_load",
+              "Name": "Apply On Load (Heavy)",
+              "Type": "checkbox",
+              "Default": false,
+              "Description": "If bulk scans are enabled, process currently loaded traders and enemies when a save or level loads.",
+              "Handles": {
+                "NameHandle": "h3508b2f27d374498addbfcb092db379a",
+                "DescriptionHandle": "h3508b2f27d374498addbfcb092db379b"
+              }
+            },
+            {
+              "Id": "freeze_randomization",
+              "Name": "Freeze Current Randomization",
+              "Type": "checkbox",
+              "Default": false,
+              "Description": "Keep the current randomized loot and prevent automatic rerolls on load, MCM save, and periodic scans.",
+              "Handles": {
+                "NameHandle": "h3508b2f27d374498addbfcb092db379c",
+                "DescriptionHandle": "h3508b2f27d374498addbfcb092db379d"
+              }
+            },
+            {
+              "Id": "apply_new_actors_while_frozen",
+              "Name": "Apply To New Actors While Frozen",
+              "Type": "checkbox",
+              "Default": false,
+              "Description": "While frozen, process vendors and enemies that have never been randomized, without rerolling already processed actors.",
+              "Handles": {
+                "NameHandle": "h3508b2f27d374498addbfcb092db379e",
+                "DescriptionHandle": "h3508b2f27d374498addbfcb092db379f"
+              }
+            },
+            {
+              "Id": "periodic_scan",
+              "Name": "Watch Loaded Actors (Heavy)",
+              "Type": "checkbox",
+              "Default": false,
+              "Description": "If bulk scans are enabled, periodically checks currently loaded characters for unprocessed traders and enemies.",
+              "Handles": {
+                "NameHandle": "h3508b2f27d374498addbfcb092db37a0",
+                "DescriptionHandle": "h3508b2f27d374498addbfcb092db37a1"
+              }
+            },
+            {
+              "Id": "debug_logging",
+              "Name": "Debug Logging",
+              "Type": "checkbox",
+              "Default": false,
+              "Description": "Print processing details to the Script Extender console.",
+              "Handles": {
+                "NameHandle": "h3508b2f27d374498addbfcb092db37a2",
+                "DescriptionHandle": "h3508b2f27d374498addbfcb092db37a3"
+              }
+            }
+          ]
+        },
+        {
+          "SectionId": "vendors",
+          "SectionName": "Vendors",
+          "Handles": {
+            "NameHandle": "h3508b2f27d374498addbfcb092db37a4",
+            "SectionNameHandle": "h3508b2f27d374498addbfcb092db37a4"
+          },
+          "Settings": [
+            {
+              "Id": "vendor_random_stock",
+              "Name": "Random Vendor Stock",
+              "Type": "checkbox",
+              "Default": false,
+              "Description": "When a trader's inventory is generated, replace that trader's safe stock with random loot.",
+              "Handles": {
+                "NameHandle": "h3508b2f27d374498addbfcb092db37a5",
+                "DescriptionHandle": "h3508b2f27d374498addbfcb092db37a6"
+              }
+            },
+            {
+              "Id": "vendor_filtered_stock",
+              "Name": "Filtered Vendor Stock",
+              "Type": "checkbox",
+              "Default": false,
+              "Description": "When a trader is processed, use a filtered random pool that excludes junk entries.",
+              "Handles": {
+                "NameHandle": "h3508b2f27d374498addbfcb092db37a7",
+                "DescriptionHandle": "h3508b2f27d374498addbfcb092db37a8"
+              }
+            },
+            {
+              "Id": "vendor_plus",
+              "Name": "Vendor++",
+              "Type": "checkbox",
+              "Default": false,
+              "Description": "When a trader's inventory is generated, keep existing stock and add random stock once per long rest.",
+              "Handles": {
+                "NameHandle": "h3508b2f27d374498addbfcb092db37a9",
+                "DescriptionHandle": "h3508b2f27d374498addbfcb092db37aa"
+              }
+            },
+            {
+              "Id": "vendor_remove_existing_stock",
+              "Name": "Remove Existing Vendor Stock",
+              "Type": "checkbox",
+              "Default": true,
+              "Description": "When Vendor++ is off, remove safe existing stock before adding random stock.",
+              "Handles": {
+                "NameHandle": "h3508b2f27d374498addbfcb092db37ab",
+                "DescriptionHandle": "h3508b2f27d374498addbfcb092db37ac"
+              }
+            },
+            {
+              "Id": "vendor_duplicate_removal",
+              "Name": "Duplicate Item Removal",
+              "Type": "checkbox",
+              "Default": false,
+              "Description": "Remove duplicate non-stackable templates from processed vendors.",
+              "Handles": {
+                "NameHandle": "h3508b2f27d374498addbfcb092db37ad",
+                "DescriptionHandle": "h3508b2f27d374498addbfcb092db37ae"
+              }
+            },
+            {
+              "Id": "vendor_generated_items",
+              "Name": "Generated Items Per Vendor",
+              "Type": "slider_int",
+              "Default": 40,
+              "Options": {
+                "Min": 0,
+                "Max": 100
+              },
+              "Description": "Number of random items added to each processed trader. This is not scaled by NPC level.",
+              "Handles": {
+                "NameHandle": "h3508b2f27d374498addbfcb092db37af",
+                "DescriptionHandle": "h3508b2f27d374498addbfcb092db37b0"
+              }
+            },
+            {
+              "Id": "vendor_essential_stock",
+              "Name": "Essential Utility Stock",
+              "Type": "checkbox",
+              "Default": true,
+              "Description": "When a vendor loot mode runs, add extra revival, rest, injury, supply, and similar utility items to some processed traders.",
+              "Handles": {
+                "NameHandle": "h3508b2f27d374498addbfcb092db37b1",
+                "DescriptionHandle": "h3508b2f27d374498addbfcb092db37b2"
+              }
+            },
+            {
+              "Id": "vendor_essential_chance",
+              "Name": "Essential Vendor Chance",
+              "Type": "slider_int",
+              "Default": 50,
+              "Options": {
+                "Min": 0,
+                "Max": 100
+              },
+              "Description": "Percent chance that a processed trader receives essential utility stock.",
+              "Handles": {
+                "NameHandle": "h3508b2f27d374498addbfcb092db37b3",
+                "DescriptionHandle": "h3508b2f27d374498addbfcb092db37b4"
+              }
+            },
+            {
+              "Id": "vendor_essential_count",
+              "Name": "Essential Items Per Vendor",
+              "Type": "slider_int",
+              "Default": 3,
+              "Options": {
+                "Min": 0,
+                "Max": 20
+              },
+              "Description": "Number of essential utility items added when the essential stock chance succeeds.",
+              "Handles": {
+                "NameHandle": "h3508b2f27d374498addbfcb092db37b5",
+                "DescriptionHandle": "h3508b2f27d374498addbfcb092db37b6"
+              }
+            },
+            {
+              "Id": "vendor_preserve_essential_stock",
+              "Name": "Preserve Essential Stock",
+              "Type": "checkbox",
+              "Default": true,
+              "Description": "Do not remove existing revival, rest, injury, supply, and similar utility items from processed traders.",
+              "Handles": {
+                "NameHandle": "h3508b2f27d374498addbfcb092db37b7",
+                "DescriptionHandle": "h3508b2f27d374498addbfcb092db37b8"
+              }
+            }
+          ]
+        },
+        {
+          "SectionId": "enemies",
+          "SectionName": "Enemies",
+          "Handles": {
+            "NameHandle": "h3508b2f27d374498addbfcb092db37b9",
+            "SectionNameHandle": "h3508b2f27d374498addbfcb092db37b9"
+          },
+          "Settings": [
+            {
+              "Id": "enemy_random_loot",
+              "Name": "Enemy Random Loot",
+              "Type": "checkbox",
+              "Default": false,
+              "Description": "When an enemy dies, add random loot to that enemy if it passes safety checks.",
+              "Handles": {
+                "NameHandle": "h3508b2f27d374498addbfcb092db37ba",
+                "DescriptionHandle": "h3508b2f27d374498addbfcb092db37bb"
+              }
+            },
+            {
+              "Id": "enemy_remove_existing_loot",
+              "Name": "Remove Existing Enemy Loot",
+              "Type": "checkbox",
+              "Default": true,
+              "Description": "When a processed enemy dies, remove safe existing inventory before adding random loot.",
+              "Handles": {
+                "NameHandle": "h3508b2f27d374498addbfcb092db37bc",
+                "DescriptionHandle": "h3508b2f27d374498addbfcb092db37bd"
+              }
+            },
+            {
+              "Id": "enemy_include_neutral_npcs",
+              "Name": "Include Neutral NPCs",
+              "Type": "checkbox",
+              "Default": false,
+              "Description": "Treat non-party non-trader NPCs as enemy loot targets when hostility cannot be detected.",
+              "Handles": {
+                "NameHandle": "h3508b2f27d374498addbfcb092db37be",
+                "DescriptionHandle": "h3508b2f27d374498addbfcb092db37bf"
+              }
+            },
+            {
+              "Id": "enemy_max_extra_drops",
+              "Name": "Enemy Drop Scaling",
+              "Type": "slider_int",
+              "Default": 4,
+              "Options": {
+                "Min": 1,
+                "Max": 12
+              },
+              "Description": "Enemies receive 1 to floor(level / this value) + 1 random items.",
+              "Handles": {
+                "NameHandle": "h3508b2f27d374498addbfcb092db37c0",
+                "DescriptionHandle": "h3508b2f27d374498addbfcb092db37c1"
+              }
+            }
+          ]
+        },
+        {
+          "SectionId": "modded_values",
+          "SectionName": "Modded Item Values",
+          "Handles": {
+            "NameHandle": "h98c0d15cfbf36cb9b330fcc116c679f8",
+            "SectionNameHandle": "h98c0d15cfbf36cb9b330fcc116c679f8"
+          },
+          "Settings": [
+            {
+              "Id": "modded_value_correction",
+              "Name": "Correct Low-Value Modded Item Prices",
+              "Type": "checkbox",
+              "Default": false,
+              "Description": "Rewrite low-value or unknown modded item prices to rarity-based stat values.",
+              "Handles": {
+                "NameHandle": "h51cb01c45f5f5da49240ca0d8d78c1e7",
+                "DescriptionHandle": "haab985afa5b2a7232bfc4e8be79e6559"
+              }
+            },
+            {
+              "Id": "modded_value_include_only",
+              "Name": "Only Apply Mod List Below",
+              "Type": "checkbox",
+              "Default": false,
+              "Description": "When enabled, only mods listed below receive rarity-based price correction. When disabled, listed mods are exempt instead.",
+              "Handles": {
+                "NameHandle": "h9f4c2a1b8e7d6c5b4a39281706f5e4d3",
+                "DescriptionHandle": "h8e3b1a0f9d8c7b6a5948372615f0e4d2"
+              }
+            },
+            {
+              "Id": "modded_value_mod_list",
+              "Name": "Mod Price Correction List",
+              "Type": "text",
+              "Default": "",
+              "Options": {
+                "Multiline": true
+              },
+              "Description": "One mod UUID, mod name, or file-path fragment per line. Leave empty to apply to all modded items. Use # for comments.",
+              "Handles": {
+                "NameHandle": "h7d2c1b0a9f8e7d6c5b4a39281706f5e4",
+                "DescriptionHandle": "h6c1b0a9f8e7d6c5b4a39281706f5e4d3c2"
+              }
+            },
+            {
+              "Id": "modded_value_threshold",
+              "Name": "Low-Value Modded Threshold",
+              "Type": "slider_int",
+              "Default": 50,
+              "Options": {
+                "Min": 0,
+                "Max": 1000
+              },
+              "Description": "Modded item stats below this value, or with unknown value, are rewritten to the rarity values below.",
+              "Handles": {
+                "NameHandle": "h316452adeb2ae04046f9d6e05f49d376",
+                "DescriptionHandle": "hccd4fd97fc2624297ebf16bf9cb52568"
+              }
+            },
+            {
+              "Id": "modded_common_value",
+              "Name": "Common Modded Value",
+              "Type": "slider_int",
+              "Default": 500,
+              "Options": {
+                "Min": 0,
+                "Max": 5000
+              },
+              "Description": "Gold value assigned to Common modded item stats below the threshold.",
+              "Handles": {
+                "NameHandle": "h6e20c2aa04f244bf9872fd371c3a68d7",
+                "DescriptionHandle": "h8a80cb0298bb393846af2148c201c381"
+              }
+            },
+            {
+              "Id": "modded_uncommon_value",
+              "Name": "Uncommon Modded Value",
+              "Type": "slider_int",
+              "Default": 650,
+              "Options": {
+                "Min": 0,
+                "Max": 5000
+              },
+              "Description": "Gold value assigned to Uncommon modded item stats below the threshold.",
+              "Handles": {
+                "NameHandle": "he31332122a0f5d8717c2afeb96e2c197",
+                "DescriptionHandle": "he3771b21a8ead8ec0dec12ee805af0ca"
+              }
+            },
+            {
+              "Id": "modded_rare_value",
+              "Name": "Rare Modded Value",
+              "Type": "slider_int",
+              "Default": 800,
+              "Options": {
+                "Min": 0,
+                "Max": 5000
+              },
+              "Description": "Gold value assigned to Rare modded item stats below the threshold.",
+              "Handles": {
+                "NameHandle": "h33374a3cc7ade9fa8c21022a0eb4c7ad",
+                "DescriptionHandle": "h2cc1452605a6a0c440c76eec2f740287"
+              }
+            },
+            {
+              "Id": "modded_very_rare_value",
+              "Name": "Very Rare Modded Value",
+              "Type": "slider_int",
+              "Default": 1000,
+              "Options": {
+                "Min": 0,
+                "Max": 5000
+              },
+              "Description": "Gold value assigned to Very Rare modded item stats below the threshold.",
+              "Handles": {
+                "NameHandle": "hcc49f481001110d3c762f71b126dfe0e",
+                "DescriptionHandle": "h49a8d90b47d8f0693b73b661ea0a55f0"
+              }
+            },
+            {
+              "Id": "modded_legendary_value",
+              "Name": "Legendary Modded Value",
+              "Type": "slider_int",
+              "Default": 1500,
+              "Options": {
+                "Min": 0,
+                "Max": 10000
+              },
+              "Description": "Gold value assigned to Legendary modded item stats below the threshold.",
+              "Handles": {
+                "NameHandle": "h4c564b9f8235da7af58cc15a164c2d5f",
+                "DescriptionHandle": "h650c685642b42bb60c49ff384f3c1120"
+              }
+            },
+            {
+              "Id": "item_value_overrides",
+              "Name": "Individual Item Value Rules",
+              "Type": "text",
+              "Default": "",
+              "Options": {
+                "Multiline": true
+              },
+              "Description": "Optional per-item rules. Use the Item Value Rules tab, or enter lines like STAT_NAME=lock or STAT_NAME=1200.",
+              "Handles": {
+                "NameHandle": "hbe53340899137b808d2717103717b6be",
+                "DescriptionHandle": "h6dd05d4990dfb2f278a1727a6f2d83d1"
+              }
+            },
+            {
+              "Id": "excluded_items",
+              "Name": "Excluded Items",
+              "Type": "text",
+              "Default": "",
+              "Options": {
+                "Multiline": true
+              },
+              "Description": "Items excluded from random loot. Managed via the Item Value Rules tab. Format: STAT_NAME=vendor, STAT_NAME=enemy, or STAT_NAME=both.",
+              "Handles": {
+                "NameHandle": "hc3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8",
+                "DescriptionHandle": "hd4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9"
+              }
+            }
+          ]
+        },
+        {
+          "SectionId": "loot_pool_filter",
+          "SectionName": "Loot Pool Filter",
+          "Handles": {
+            "NameHandle": "h4a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d",
+            "SectionNameHandle": "h4a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d"
+          },
+          "Settings": [
+            {
+              "Id": "loot_mod_filter_enabled",
+              "Name": "Enable Loot Pool Mod Filter",
+              "Type": "checkbox",
+              "Default": false,
+              "Description": "Filter which mods' items appear in the random loot pool (both vendor stock and enemy drops). When disabled, all items are included.",
+              "Handles": {
+                "NameHandle": "h5b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e",
+                "DescriptionHandle": "h6c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f"
+              }
+            },
+            {
+              "Id": "loot_mod_filter_mode",
+              "Name": "Filter Mode",
+              "Type": "combo",
+              "Default": "Exclude",
+              "Options": {
+                "Values": ["Exclude", "Include Only", "Vanilla Only"]
+              },
+              "Description": "Exclude: listed mods are blocked, all other items included. Include Only: only listed mods' items are included. Vanilla Only: only base game items are included.",
+              "Handles": {
+                "NameHandle": "h7d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a",
+                "DescriptionHandle": "h8e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b"
+              }
+            },
+            {
+              "Id": "loot_mod_filter_list",
+              "Name": "Mod Filter List",
+              "Type": "text",
+              "Default": "",
+              "Options": {
+                "Multiline": true
+              },
+              "Description": "One mod UUID, mod name, or file-path fragment per line. Leave empty for Exclude mode to include everything, or for Include Only mode to include nothing. Use # for comments.",
+              "Handles": {
+                "NameHandle": "h9f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c",
+                "DescriptionHandle": "ha0b1c2d3e4f5a6b7c8d9e0f1a2b3c4d5"
+              }
+            }
+          ]
+        },
+        {
+          "SectionId": "rarity_weights",
+          "SectionName": "Rarity Weights by Act",
+          "Handles": {
+            "NameHandle": "hb1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6",
+            "SectionNameHandle": "hb1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6"
+          },
+          "Settings": [
+            {
+              "Id": "rarity_weights_enabled",
+              "Name": "Enable Rarity Weights",
+              "Type": "checkbox",
+              "Default": false,
+              "Description": "When enabled, item rarity affects how often items appear in the random loot pool based on the weights below. Each weight is a percentage chance (0-100) that an item of that rarity will be accepted when picked.",
+              "Handles": {
+                "NameHandle": "hc2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f7",
+                "DescriptionHandle": "hd3e4f5a6b7c8d9e0f1a2b3c4d5e6f7a8"
+              }
+            },
+            {
+              "Id": "rarity_weight_common_act1",
+              "Name": "Common - Act 1",
+              "Type": "slider_int",
+              "Default": 50,
+              "Options": { "Min": 0, "Max": 100 },
+              "Description": "Weight for Common items in Act 1.",
+              "Handles": {
+                "NameHandle": "he4f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9",
+                "DescriptionHandle": "hf5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c0"
+              }
+            },
+            {
+              "Id": "rarity_weight_common_act2",
+              "Name": "Common - Act 2",
+              "Type": "slider_int",
+              "Default": 30,
+              "Options": { "Min": 0, "Max": 100 },
+              "Description": "Weight for Common items in Act 2.",
+              "Handles": {
+                "NameHandle": "ha6b7c8d9e0f1a2b3c4d5e6f7a8b9c0d1",
+                "DescriptionHandle": "hb7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2"
+              }
+            },
+            {
+              "Id": "rarity_weight_common_act3",
+              "Name": "Common - Act 3",
+              "Type": "slider_int",
+              "Default": 20,
+              "Options": { "Min": 0, "Max": 100 },
+              "Description": "Weight for Common items in Act 3.",
+              "Handles": {
+                "NameHandle": "hc8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f3",
+                "DescriptionHandle": "hd9e0f1a2b3c4d5e6f7a8b9c0d1e2f3a4"
+              }
+            },
+            {
+              "Id": "rarity_weight_uncommon_act1",
+              "Name": "Uncommon - Act 1",
+              "Type": "slider_int",
+              "Default": 30,
+              "Options": { "Min": 0, "Max": 100 },
+              "Description": "Weight for Uncommon items in Act 1.",
+              "Handles": {
+                "NameHandle": "he0f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5",
+                "DescriptionHandle": "hf1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6"
+              }
+            },
+            {
+              "Id": "rarity_weight_uncommon_act2",
+              "Name": "Uncommon - Act 2",
+              "Type": "slider_int",
+              "Default": 30,
+              "Options": { "Min": 0, "Max": 100 },
+              "Description": "Weight for Uncommon items in Act 2.",
+              "Handles": {
+                "NameHandle": "ha2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7",
+                "DescriptionHandle": "hb3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8"
+              }
+            },
+            {
+              "Id": "rarity_weight_uncommon_act3",
+              "Name": "Uncommon - Act 3",
+              "Type": "slider_int",
+              "Default": 25,
+              "Options": { "Min": 0, "Max": 100 },
+              "Description": "Weight for Uncommon items in Act 3.",
+              "Handles": {
+                "NameHandle": "hc4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9",
+                "DescriptionHandle": "hd5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0"
+              }
+            },
+            {
+              "Id": "rarity_weight_rare_act1",
+              "Name": "Rare - Act 1",
+              "Type": "slider_int",
+              "Default": 15,
+              "Options": { "Min": 0, "Max": 100 },
+              "Description": "Weight for Rare items in Act 1.",
+              "Handles": {
+                "NameHandle": "he6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1",
+                "DescriptionHandle": "hf7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2"
+              }
+            },
+            {
+              "Id": "rarity_weight_rare_act2",
+              "Name": "Rare - Act 2",
+              "Type": "slider_int",
+              "Default": 25,
+              "Options": { "Min": 0, "Max": 100 },
+              "Description": "Weight for Rare items in Act 2.",
+              "Handles": {
+                "NameHandle": "ha8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3",
+                "DescriptionHandle": "hb9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4"
+              }
+            },
+            {
+              "Id": "rarity_weight_rare_act3",
+              "Name": "Rare - Act 3",
+              "Type": "slider_int",
+              "Default": 30,
+              "Options": { "Min": 0, "Max": 100 },
+              "Description": "Weight for Rare items in Act 3.",
+              "Handles": {
+                "NameHandle": "hc0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5",
+                "DescriptionHandle": "hd1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6"
+              }
+            },
+            {
+              "Id": "rarity_weight_veryrare_act1",
+              "Name": "Very Rare - Act 1",
+              "Type": "slider_int",
+              "Default": 4,
+              "Options": { "Min": 0, "Max": 100 },
+              "Description": "Weight for Very Rare items in Act 1.",
+              "Handles": {
+                "NameHandle": "he2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7",
+                "DescriptionHandle": "hf3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8"
+              }
+            },
+            {
+              "Id": "rarity_weight_veryrare_act2",
+              "Name": "Very Rare - Act 2",
+              "Type": "slider_int",
+              "Default": 10,
+              "Options": { "Min": 0, "Max": 100 },
+              "Description": "Weight for Very Rare items in Act 2.",
+              "Handles": {
+                "NameHandle": "ha4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9",
+                "DescriptionHandle": "hb5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0"
+              }
+            },
+            {
+              "Id": "rarity_weight_veryrare_act3",
+              "Name": "Very Rare - Act 3",
+              "Type": "slider_int",
+              "Default": 15,
+              "Options": { "Min": 0, "Max": 100 },
+              "Description": "Weight for Very Rare items in Act 3.",
+              "Handles": {
+                "NameHandle": "hc6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1",
+                "DescriptionHandle": "hd7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a2"
+              }
+            },
+            {
+              "Id": "rarity_weight_legendary_act1",
+              "Name": "Legendary - Act 1",
+              "Type": "slider_int",
+              "Default": 1,
+              "Options": { "Min": 0, "Max": 100 },
+              "Description": "Weight for Legendary items in Act 1.",
+              "Handles": {
+                "NameHandle": "he8f9a0b1c2d3e4f5a6b7c8d9e0f1a2b3",
+                "DescriptionHandle": "hf9a0b1c2d3e4f5a6b7c8d9e0f1a2b3c4"
+              }
+            },
+            {
+              "Id": "rarity_weight_legendary_act2",
+              "Name": "Legendary - Act 2",
+              "Type": "slider_int",
+              "Default": 5,
+              "Options": { "Min": 0, "Max": 100 },
+              "Description": "Weight for Legendary items in Act 2.",
+              "Handles": {
+                "NameHandle": "hb5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e1",
+                "DescriptionHandle": "hc6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f2"
+              }
+            },
+            {
+              "Id": "rarity_weight_legendary_act3",
+              "Name": "Legendary - Act 3",
+              "Type": "slider_int",
+              "Default": 10,
+              "Options": { "Min": 0, "Max": 100 },
+              "Description": "Weight for Legendary items in Act 3.",
+              "Handles": {
+                "NameHandle": "hd7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a3",
+                "DescriptionHandle": "he8f9a0b1c2d3e4f5a6b7c8d9e0f1a2b4"
+              }
+            }
+          ]
+        },
+        {
+          "SectionId": "safety",
+          "SectionName": "Safety",
+          "Handles": {
+            "NameHandle": "h3508b2f27d374498addbfcb092db37c2",
+            "SectionNameHandle": "h3508b2f27d374498addbfcb092db37c2"
+          },
+          "Settings": [
+            {
+              "Id": "protect_story_items",
+              "Name": "Protect Story Items",
+              "Type": "checkbox",
+              "Default": true,
+              "Description": "Do not delete or generate obvious quest, story, key, container, or plot-critical item templates.",
+              "Handles": {
+                "NameHandle": "h3508b2f27d374498addbfcb092db37c3",
+                "DescriptionHandle": "h3508b2f27d374498addbfcb092db37c4"
+              }
+            },
+            {
+              "Id": "skip_broken_items",
+              "Name": "Skip Broken Items",
+              "Type": "checkbox",
+              "Default": true,
+              "Description": "Never give items that are confirmed broken: a name with no text (shows Not Found), a visual that does not exist (shows a placeholder model), or a use action that casts a spell that does not exist (such as VBT's Scroll of Dying Star's Breath, which crashed the dice-roll screen). A missing stat entry alone does not count. Skipped items are listed in Script Extender/A_Humans_Random_Loot/skipped_broken_items.txt."
+            },
+            {
+              "Id": "protect_bosses",
+              "Name": "Protect Bosses",
+              "Type": "checkbox",
+              "Default": true,
+              "Description": "Skip boss inventories.",
+              "Handles": {
+                "NameHandle": "h3508b2f27d374498addbfcb092db37c5",
+                "DescriptionHandle": "h3508b2f27d374498addbfcb092db37c6"
+              }
+            },
+            {
+              "Id": "block_combined_items",
+              "Name": "Block Combinable Results",
+              "Type": "checkbox",
+              "Default": true,
+              "Description": "Items created by combining are excluded from the random loot pool.",
+              "Handles": {
+                "NameHandle": "h3508b2f27d374498addbfcb092db37c7",
+                "DescriptionHandle": "h3508b2f27d374498addbfcb092db37c8"
+              }
+            },
+            {
+              "Id": "max_value_per_level",
+              "Name": "Level Value Cap",
+              "Type": "checkbox",
+              "Default": true,
+              "Description": "Vendor loot uses player level x 100; enemy loot uses enemy level x 100. Items with known value above that cap are skipped.",
+              "Handles": {
+                "NameHandle": "h3508b2f27d374498addbfcb092db37c9",
+                "DescriptionHandle": "h3508b2f27d374498addbfcb092db37ca"
+              }
+            },
+            {
+              "Id": "allow_unknown_value_templates",
+              "Name": "Allow Template-Only Items",
+              "Type": "checkbox",
+              "Default": true,
+              "Description": "Allows root-template pool entries when no in-world item value is known.",
+              "Handles": {
+                "NameHandle": "h3508b2f27d374498addbfcb092db37cb",
+                "DescriptionHandle": "h3508b2f27d374498addbfcb092db37cc"
+              }
+            },
+            {
+              "Id": "include_junk",
+              "Name": "Include Junk",
+              "Type": "checkbox",
+              "Default": true,
+              "Description": "Allow junk items in the random pool unless Filtered Vendor Stock is active.",
+              "Handles": {
+                "NameHandle": "h3508b2f27d374498addbfcb092db37cd",
+                "DescriptionHandle": "h3508b2f27d374498addbfcb092db37ce"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentList>
+	<content contentuid="h3508b2f27d374498addbfcb092db3794" version="1">Settings</content>
+	<content contentuid="h3508b2f27d374498addbfcb092db3795" version="1">General</content>
+	<content contentuid="h3508b2f27d374498addbfcb092db3796" version="1">Enable Random Loot</content>
+	<content contentuid="h3508b2f27d374498addbfcb092db3797" version="1">Master switch for trader and enemy loot processing.</content>
+	<content contentuid="h3508b2f27d374498addbfcb092db3798" version="1">Enable Bulk Loaded-Actor Scans</content>
+	<content contentuid="h3508b2f27d374498addbfcb092db3799" version="1">Allows optional load-time and background scans over all currently loaded characters. Keep off for normal play.</content>
+	<content contentuid="h3508b2f27d374498addbfcb092db379a" version="1">Apply On Load (Heavy)</content>
+	<content contentuid="h3508b2f27d374498addbfcb092db379b" version="1">If bulk scans are enabled, process currently loaded traders and enemies when a save or level loads.</content>
+	<content contentuid="h3508b2f27d374498addbfcb092db379c" version="1">Freeze Current Randomization</content>
+	<content contentuid="h3508b2f27d374498addbfcb092db379d" version="1">Keep the current randomized loot and prevent automatic rerolls on load, MCM save, and periodic scans.</content>
+	<content contentuid="h3508b2f27d374498addbfcb092db379e" version="1">Apply To New Actors While Frozen</content>
+	<content contentuid="h3508b2f27d374498addbfcb092db379f" version="1">While frozen, process vendors and enemies that have never been randomized, without rerolling already processed actors.</content>
+	<content contentuid="h3508b2f27d374498addbfcb092db37a0" version="1">Watch Loaded Actors (Heavy)</content>
+	<content contentuid="h3508b2f27d374498addbfcb092db37a1" version="1">If bulk scans are enabled, periodically checks currently loaded characters for unprocessed traders and enemies.</content>
+	<content contentuid="h3508b2f27d374498addbfcb092db37a2" version="1">Debug Logging</content>
+	<content contentuid="h3508b2f27d374498addbfcb092db37a3" version="1">Print processing details to the Script Extender console.</content>
+	<content contentuid="h3508b2f27d374498addbfcb092db37a4" version="1">Vendors</content>
+	<content contentuid="h3508b2f27d374498addbfcb092db37a5" version="1">Random Vendor Stock</content>
+	<content contentuid="h3508b2f27d374498addbfcb092db37a6" version="1">When a trader's inventory is generated, replace that trader's safe stock with random loot.</content>
+	<content contentuid="h3508b2f27d374498addbfcb092db37a7" version="1">Filtered Vendor Stock</content>
+	<content contentuid="h3508b2f27d374498addbfcb092db37a8" version="1">When a trader is processed, use a filtered random pool that excludes junk entries.</content>
+	<content contentuid="h3508b2f27d374498addbfcb092db37a9" version="1">Vendor++</content>
+	<content contentuid="h3508b2f27d374498addbfcb092db37aa" version="1">When a trader's inventory is generated, keep existing stock and add random stock once per long rest.</content>
+	<content contentuid="h3508b2f27d374498addbfcb092db37ab" version="1">Remove Existing Vendor Stock</content>
+	<content contentuid="h3508b2f27d374498addbfcb092db37ac" version="1">When Vendor++ is off, remove safe existing stock before adding random stock.</content>
+	<content contentuid="h3508b2f27d374498addbfcb092db37ad" version="1">Duplicate Item Removal</content>
+	<content contentuid="h3508b2f27d374498addbfcb092db37ae" version="1">Remove duplicate non-stackable templates from processed vendors.</content>
+	<content contentuid="h3508b2f27d374498addbfcb092db37af" version="1">Generated Items Per Vendor</content>
+	<content contentuid="h3508b2f27d374498addbfcb092db37b0" version="1">Number of random items added to each processed trader. This is not scaled by NPC level.</content>
+	<content contentuid="h3508b2f27d374498addbfcb092db37b1" version="1">Essential Utility Stock</content>
+	<content contentuid="h3508b2f27d374498addbfcb092db37b2" version="1">When a vendor loot mode runs, add extra revival, rest, injury, supply, and similar utility items to some processed traders.</content>
+	<content contentuid="h3508b2f27d374498addbfcb092db37b3" version="1">Essential Vendor Chance</content>
+	<content contentuid="h3508b2f27d374498addbfcb092db37b4" version="1">Percent chance that a processed trader receives essential utility stock.</content>
+	<content contentuid="h3508b2f27d374498addbfcb092db37b5" version="1">Essential Items Per Vendor</content>
+	<content contentuid="h3508b2f27d374498addbfcb092db37b6" version="1">Number of essential utility items added when the essential stock chance succeeds.</content>
+	<content contentuid="h3508b2f27d374498addbfcb092db37b7" version="1">Preserve Essential Stock</content>
+	<content contentuid="h3508b2f27d374498addbfcb092db37b8" version="1">Do not remove existing revival, rest, injury, supply, and similar utility items from processed traders.</content>
+	<content contentuid="h3508b2f27d374498addbfcb092db37b9" version="1">Enemies</content>
+	<content contentuid="h3508b2f27d374498addbfcb092db37ba" version="1">Enemy Random Loot</content>
+	<content contentuid="h3508b2f27d374498addbfcb092db37bb" version="1">When an enemy dies, add random loot to that enemy if it passes safety checks.</content>
+	<content contentuid="h3508b2f27d374498addbfcb092db37bc" version="1">Remove Existing Enemy Loot</content>
+	<content contentuid="h3508b2f27d374498addbfcb092db37bd" version="1">When a processed enemy dies, remove safe existing inventory before adding random loot.</content>
+	<content contentuid="h3508b2f27d374498addbfcb092db37be" version="1">Include Neutral NPCs</content>
+	<content contentuid="h3508b2f27d374498addbfcb092db37bf" version="1">Treat non-party non-trader NPCs as enemy loot targets when hostility cannot be detected.</content>
+	<content contentuid="h3508b2f27d374498addbfcb092db37c0" version="1">Enemy Drop Scaling</content>
+	<content contentuid="h3508b2f27d374498addbfcb092db37c1" version="1">Enemies receive 1 to floor(level / this value) + 1 random items.</content>
+	<content contentuid="h98c0d15cfbf36cb9b330fcc116c679f8" version="1">Modded Item Values</content>
+	<content contentuid="h51cb01c45f5f5da49240ca0d8d78c1e7" version="1">Correct Low-Value Modded Item Prices</content>
+	<content contentuid="haab985afa5b2a7232bfc4e8be79e6559" version="1">Rewrite low-value or unknown modded item prices to rarity-based stat values.</content>
+	<content contentuid="h9f4c2a1b8e7d6c5b4a39281706f5e4d3" version="1">Only Apply Mod List Below</content>
+	<content contentuid="h8e3b1a0f9d8c7b6a5948372615f0e4d2" version="1">When enabled, only mods listed below receive rarity-based price correction. When disabled, listed mods are exempt instead.</content>
+	<content contentuid="h7d2c1b0a9f8e7d6c5b4a39281706f5e4" version="1">Mod Price Correction List</content>
+	<content contentuid="h6c1b0a9f8e7d6c5b4a39281706f5e4d3c2" version="1">One mod UUID, mod name, or file-path fragment per line. Leave empty to apply to all modded items. Use # for comments.</content>
+	<content contentuid="h316452adeb2ae04046f9d6e05f49d376" version="1">Low-Value Modded Threshold</content>
+	<content contentuid="hccd4fd97fc2624297ebf16bf9cb52568" version="1">Modded item stats below this value, or with unknown value, are rewritten to the rarity values below.</content>
+	<content contentuid="h6e20c2aa04f244bf9872fd371c3a68d7" version="1">Common Modded Value</content>
+	<content contentuid="h8a80cb0298bb393846af2148c201c381" version="1">Gold value assigned to Common modded item stats below the threshold.</content>
+	<content contentuid="he31332122a0f5d8717c2afeb96e2c197" version="1">Uncommon Modded Value</content>
+	<content contentuid="he3771b21a8ead8ec0dec12ee805af0ca" version="1">Gold value assigned to Uncommon modded item stats below the threshold.</content>
+	<content contentuid="h33374a3cc7ade9fa8c21022a0eb4c7ad" version="1">Rare Modded Value</content>
+	<content contentuid="h2cc1452605a6a0c440c76eec2f740287" version="1">Gold value assigned to Rare modded item stats below the threshold.</content>
+	<content contentuid="hcc49f481001110d3c762f71b126dfe0e" version="1">Very Rare Modded Value</content>
+	<content contentuid="h49a8d90b47d8f0693b73b661ea0a55f0" version="1">Gold value assigned to Very Rare modded item stats below the threshold.</content>
+	<content contentuid="h4c564b9f8235da7af58cc15a164c2d5f" version="1">Legendary Modded Value</content>
+	<content contentuid="h650c685642b42bb60c49ff384f3c1120" version="1">Gold value assigned to Legendary modded item stats below the threshold.</content>
+	<content contentuid="hbe53340899137b808d2717103717b6be" version="1">Individual Item Value Rules</content>
+	<content contentuid="h6dd05d4990dfb2f278a1727a6f2d83d1" version="1">Optional per-item rules. Use the Item Value Rules tab, or enter lines like STAT_NAME=lock or STAT_NAME=1200.</content>
+	<content contentuid="h3508b2f27d374498addbfcb092db37c2" version="1">Safety</content>
+	<content contentuid="h3508b2f27d374498addbfcb092db37c3" version="1">Protect Story Items</content>
+	<content contentuid="h3508b2f27d374498addbfcb092db37c4" version="1">Do not delete or generate obvious quest, story, key, container, or plot-critical item templates.</content>
+	<content contentuid="h3508b2f27d374498addbfcb092db37c5" version="1">Protect Bosses</content>
+	<content contentuid="h3508b2f27d374498addbfcb092db37c6" version="1">Skip boss inventories.</content>
+	<content contentuid="h3508b2f27d374498addbfcb092db37c7" version="1">Block Combinable Results</content>
+	<content contentuid="h3508b2f27d374498addbfcb092db37c8" version="1">Items created by combining are excluded from the random loot pool.</content>
+	<content contentuid="h3508b2f27d374498addbfcb092db37c9" version="1">Level Value Cap</content>
+	<content contentuid="h3508b2f27d374498addbfcb092db37ca" version="1">Vendor loot uses player level x 100; enemy loot uses enemy level x 100. Items with known value above that cap are skipped.</content>
+	<content contentuid="h3508b2f27d374498addbfcb092db37cb" version="1">Allow Template-Only Items</content>
+	<content contentuid="h3508b2f27d374498addbfcb092db37cc" version="1">Allows root-template pool entries when no in-world item value is known.</content>
+	<content contentuid="h3508b2f27d374498addbfcb092db37cd" version="1">Include Junk</content>
+	<content contentuid="h3508b2f27d374498addbfcb092db37ce" version="1">Allow junk items in the random pool unless Filtered Vendor Stock is active.</content>
+</contentList>

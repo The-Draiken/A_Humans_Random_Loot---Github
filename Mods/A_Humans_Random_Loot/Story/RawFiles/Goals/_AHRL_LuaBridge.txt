@@ -1,0 +1,24 @@
+Version 1
+SubGoalCombiner SGC_AND
+INITSECTION
+KBSECTION
+
+PROC
+PROC_AHRL_TemplateAddTo((ITEMROOT)_Template,(GUIDSTRING)_Holder,(INTEGER)_Count,(INTEGER)_Notification)
+THEN
+TemplateAddTo(_Template,_Holder,_Count,_Notification);
+
+PROC
+PROC_AHRL_RequestDelete((ITEM)_Item)
+THEN
+RequestDelete(_Item);
+
+PROC
+PROC_AHRL_CreateAtObjectToInventory((GUIDSTRING)_Template,(GUIDSTRING)_Holder,(INTEGER)_Count,(INTEGER)_Notification)
+AND
+CreateAtObject(_Template,_Holder,0,0,"",0,_Created)
+THEN
+ToInventory(_Created,_Holder,_Count,_Notification,1);
+
+EXITSECTION
+ENDEXITSECTION
